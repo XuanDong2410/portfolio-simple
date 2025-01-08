@@ -14,26 +14,55 @@ header {
     background-color: #333;
     color: #fff;
     padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-nav ul {
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
     list-style-type: none;
     display: flex;
-    justify-content: center;
 }
 
-nav ul li {
-    margin: 0 1rem;
+.nav-links li {
+    margin-left: 1rem;
 }
 
-nav ul li a {
+.nav-links li a {
     color: #fff;
     text-decoration: none;
 }
 
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
 main {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 80px auto 0;
     padding: 2rem;
 }
 
@@ -60,6 +89,11 @@ h1, h2 {
     border: 1px solid #ddd;
     padding: 1rem;
     border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
 }
 
 .project img {
@@ -88,6 +122,7 @@ button {
     padding: 0.5rem 1rem;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -103,6 +138,29 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
     .project-grid {
         grid-template-columns: 1fr;
     }
